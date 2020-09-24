@@ -1,0 +1,47 @@
+<div class="container">
+    <!--Interpolation-->
+    <h3>hello {{title}}</h3>
+    <input value="{{title}}" />
+    <div class="container">
+        <div style="width:200px;" class="card text-left">
+            <img class="card-img-top" src="{{renderPhim().img}}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{renderPhim().name}}</h4>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <!--Property binding-->
+    <h3 [innerHTML]="'hello ' + title"> </h3>
+    <input #inputTitle [value]="title" />
+
+    <br />
+    <br />
+    <button (click)="changeTitle(inputTitle.value)">Change title</button>
+    <br />
+    <br />
+    <br />
+    <!--Twoway binding-->
+    <input [(ngModel)]="title" />
+    <br />
+    <br />
+    <br />
+    <input #text (keyup)="changeTitle(text.value)" />
+    <br />
+    <br />
+    <hr />
+    <ul>
+        <li>
+            Tên SP: <input class="form-control" [(ngModel)]="thongTinSanPham.tenSP" />
+            <br />
+            <br />
+            Số lượng SP: <input class="form-control" [(ngModel)]="thongTinSanPham.soLuong" />
+            <br />
+            <br />
+            Đơn giá SP: <input class="form-control" [(ngModel)]="thongTinSanPham.donGia" />
+            <br />
+            <br />
+            Thành tiền: {{thongTinSanPham.soLuong * thongTinSanPham.donGia}}
+        </li>
+    </ul>
+</div>
